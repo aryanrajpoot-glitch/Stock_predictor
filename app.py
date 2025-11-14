@@ -80,5 +80,11 @@ def predict():
             'predicted_price': [155.0, 156.0, 157.0, 158.0, 159.0][min(days-1, 4)]
         })
 
+
+    # For Render deployment
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    # Get the PORT from environment variables, default to 10000 if not set
+    port = int(os.environ.get('PORT', 10000))
+    # Bind to 0.0.0.0:port instead of localhost:5000
+    app.run(host='0.0.0.0', port=port, debug=False)
